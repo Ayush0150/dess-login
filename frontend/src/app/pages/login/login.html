@@ -9,17 +9,21 @@
 
     <h1 id="login-heading">LOGIN</h1>
 
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-field">
         <label for="username">Username</label>
         <input
           id="username"
           name="username"
           type="text"
+          [formControl]="username"
           placeholder="Username"
           autocomplete="username"
           required
         />
+        @if (username.touched && username.hasError('required')) {
+          <small class="field-error">Username is required.</small>
+        }
       </div>
 
       <div class="form-field">
@@ -29,6 +33,7 @@
             id="password"
             name="password"
             [type]="showPassword ? 'text' : 'password'"
+            [formControl]="password"
             placeholder="Password"
             autocomplete="current-password"
             required
@@ -53,6 +58,9 @@
             </svg>
           </button>
         </div>
+        @if (password.touched && password.hasError('required')) {
+          <small class="field-error">Password is required.</small>
+        }
       </div>
 
       <button class="sign-in-button" type="submit">Sign In</button>

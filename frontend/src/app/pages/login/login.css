@@ -212,3 +212,10 @@
   outline: 2px solid #1d57a9;
   outline-offset: 1px;
 }
+
+.field-error {
+  display: block;
+  margin-top: 6px;
+  color: #a11919;
+  font-size: 13px;
+}
