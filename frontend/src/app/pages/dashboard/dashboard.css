@@ -8,9 +8,9 @@
 header {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 1.5rem;
   min-height: 64px;
-  padding: 0 20px;
+  padding: 0 max(1.25rem, env(safe-area-inset-right)) 0 max(1.25rem, env(safe-area-inset-left));
   border-bottom: 1px solid #c9ced5;
   background: linear-gradient(180deg, #245da9, #103059);
   color: #fff;
@@ -49,7 +49,7 @@ nav span {
 }
 
 .username {
-  max-width: 160px;
+  max-width: min(10rem, 35vw);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -106,10 +106,11 @@ main {
 
 .login-toast {
   position: fixed;
-  right: 24px;
-  bottom: calc(24px + 1vh);
+  right: max(1.5rem, env(safe-area-inset-right));
+  bottom: calc(max(1.5rem, env(safe-area-inset-bottom)) + 1dvh);
   z-index: 10;
-  max-width: calc(100vw - 48px);
+  max-width: calc(100% - 3rem);
+  overflow-wrap: anywhere;
   box-sizing: border-box;
   margin: 0;
   padding: 14px 20px;
@@ -120,8 +121,39 @@ main {
   box-shadow: 0 8px 28px rgba(16, 48, 89, 0.12);
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 68.75rem) {
   header {
-    padding: 0 16px;
+    flex-wrap: wrap;
+    gap: 0;
+    padding-inline: max(1rem, env(safe-area-inset-left)) max(1rem, env(safe-area-inset-right));
+  }
+
+  nav {
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  nav a,
+  nav span {
+    min-height: 2.75rem;
+    padding-inline: 0.625rem;
+  }
+
+  .account {
+    min-width: 0;
+    min-height: 3rem;
+  }
+}
+
+@media (max-width: 30rem) {
+  main {
+    padding: 1.5rem 1rem;
+  }
+
+  .login-toast {
+    right: max(1rem, env(safe-area-inset-right));
+    max-width: calc(100% - 2rem);
+    padding: 0.75rem 1rem;
   }
 }

@@ -1,6 +1,8 @@
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  min-height: 100dvh;
   background-image: linear-gradient(rgba(8, 25, 50, 0.3), rgba(8, 25, 50, 0.3)), url('/theme.png');
   background-size: cover;
   background-position: center;
@@ -8,12 +10,12 @@
 }
 
 .login-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
   width: 100%;
   box-sizing: border-box;
-  padding: 10px 16px;
+  padding: 0.625rem max(1rem, env(safe-area-inset-right))
+    max(0.625rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+  flex-wrap: wrap;
+  overflow-wrap: anywhere;
 
   display: flex;
   justify-content: space-around;
@@ -29,7 +31,7 @@
   color: #007bff;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 50rem) {
   .login-footer {
     flex-direction: column;
     gap: 4px;
@@ -38,9 +40,11 @@
 }
 
 .login-main {
-  min-height: 100vh;
+  flex: 1;
+  min-width: 0;
   box-sizing: border-box;
-  padding: 40px 20px 100px;
+  padding: clamp(1rem, 4vh, 2.5rem) max(1rem, env(safe-area-inset-right))
+    clamp(1rem, 4vh, 2.5rem) max(1rem, env(safe-area-inset-left));
 
   display: flex;
   justify-content: center;
@@ -49,9 +53,10 @@
 
 .login-card {
   width: 100%;
-  max-width: 430px;
+  max-width: 26.875rem;
+  min-width: 0;
   box-sizing: border-box;
-  padding: 32px 24px 20px;
+  padding: clamp(1.25rem, 4vw, 2rem) clamp(1rem, 4vw, 1.5rem) 1.25rem;
   border-radius: 5px;
 
   background: rgba(255, 255, 255, 0.7);
@@ -64,7 +69,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 180px;
+  width: min(11.25rem, 65%);
   max-width: 100%;
   margin: 0 auto 16px;
 }
@@ -92,7 +97,8 @@
 .company-name {
   margin: 0 0 32px;
   color: #007bff;
-  font-size: 20px;
+  font-size: clamp(1rem, 3.5vw, 1.25rem);
+  overflow-wrap: anywhere;
   font-weight: 500;
 }
 
@@ -117,7 +123,10 @@
 .form-field input {
   width: 100%;
   box-sizing: border-box;
-  padding: 12px;
+  padding: 0.75rem;
+  min-width: 0;
+  min-height: 2.75rem;
+  font-size: 1rem;
   border: 1px solid #ced4da;
   border-radius: 4px;
 
@@ -153,7 +162,8 @@
 .forgot-password {
   display: block;
   margin: 10px auto 0;
-  padding: 4px;
+  padding: 0.25rem;
+  min-height: 2.75rem;
   border: 0;
   background: transparent;
   color: #1d57a9;
@@ -181,18 +191,18 @@
 }
 
 .password-input input {
-  padding-right: 48px;
+  padding-right: 3.25rem;
 }
 
 .eye-button {
   position: absolute;
-  right: 4px;
+  right: 0.125rem;
   top: 50%;
   transform: translateY(-50%);
   display: grid;
   place-items: center;
-  width: 36px;
-  height: 36px;
+  width: 2.75rem;
+  height: 2.75rem;
   padding: 0;
   border: 0;
   border-radius: 6px;
