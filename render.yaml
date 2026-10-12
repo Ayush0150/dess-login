@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: dess-login
+    runtime: docker
+    plan: free
+    region: singapore
+    healthCheckPath: /api/health
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ASPNETCORE_HTTP_PORTS
+        value: 10000
+      - key: ConnectionStrings__DefaultConnection
+        sync: false
+      - key: SeedUser__Username
+        sync: false
+      - key: SeedUser__Password
+        sync: false

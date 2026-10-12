@@ -16,7 +16,7 @@
           id="username"
           name="username"
           type="text"
-          [formControl]="username"
+          formControlName="username"
           placeholder="Username"
           autocomplete="username"
           required
@@ -33,7 +33,7 @@
             id="password"
             name="password"
             [type]="showPassword ? 'text' : 'password'"
-            [formControl]="password"
+            formControlName="password"
             placeholder="Password"
             autocomplete="current-password"
             required
@@ -63,8 +63,15 @@
         }
       </div>
 
-      <button class="sign-in-button" type="submit">Sign In</button>
-      <button class="forgot-password" type="button">Forgot password?</button>
+      @if (error()) {
+        <p class="field-error" role="alert">{{ error() }}</p>
+      }
+      <button class="sign-in-button" type="submit" [disabled]="loading()">
+        {{ loading() ? 'Signing in…' : 'Sign In' }}
+      </button>
+      <button class="forgot-password" type="button">
+        Forgot password?
+      </button>
     </form>
   </section>
 </main>

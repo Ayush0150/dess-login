@@ -1,0 +1,14 @@
+.git
+**/node_modules
+**/dist
+**/bin
+**/obj
+**/.angular
+**/.env*
+**/secrets.json
+**/.DS_Store
+**/.idea
+**/.vscode
+**/*.log
+**/coverage
+**/out-tsc

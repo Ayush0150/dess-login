@@ -1,0 +1,30 @@
+<header>
+  <nav aria-label="Main navigation">
+    <a routerLink="/dashboard" aria-current="page">Home</a>
+    <span>Utility</span>
+    <span>Masters</span>
+    <span>Settings</span>
+    <span>Uploads</span>
+    <span>Meetings</span>
+    <span>Reports</span>
+    <span>Evaluation</span>
+    <span>Disclosures</span>
+  </nav>
+  <div class="account">
+    <span class="username" [attr.title]="user()?.username">{{ user()?.username }}</span>
+    <button type="button" (click)="logout()" [disabled]="loggingOut()">
+      {{ loggingOut() ? 'Logging out…' : 'Logout' }}
+    </button>
+  </div>
+</header>
+<main aria-labelledby="welcome-heading">
+  <h1 id="welcome-heading" class="welcome">Hi, <span>{{ user()?.username }}</span>!</h1>
+  @if (error()) {
+    <p class="error" role="alert">{{ error() }}</p>
+  }
+</main>
+<div role="status" aria-live="polite">
+  @if (loginSuccess()) {
+    <p class="login-toast">Login successful</p>
+  }
+</div>

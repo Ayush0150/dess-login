@@ -1,0 +1,127 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+  background: #fff;
+  color: #263649;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-height: 64px;
+  padding: 0 20px;
+  border-bottom: 1px solid #c9ced5;
+  background: linear-gradient(180deg, #245da9, #103059);
+  color: #fff;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+nav a,
+nav span {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-height: 64px;
+  padding: 0 10px;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 18px;
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.username {
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+button {
+  min-height: 44px;
+  padding: 0 0 0 18px;
+  border: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -3px;
+}
+
+main {
+  padding: 32px clamp(20px, 3vw, 48px);
+}
+
+.welcome {
+  margin: 0;
+  color: #263649;
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+}
+
+.welcome span {
+  color: #1d57a9;
+  font-weight: 600;
+}
+
+.error {
+  color: #a11919;
+}
+
+.login-toast {
+  position: fixed;
+  right: 24px;
+  bottom: calc(24px + 1vh);
+  z-index: 10;
+  max-width: calc(100vw - 48px);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 14px 20px;
+  border: 1px solid #bbdfcc;
+  background: #c8edcf;
+  color: #166534;
+  font-weight: 500;
+  box-shadow: 0 8px 28px rgba(16, 48, 89, 0.12);
+}
+
+@media (max-width: 1100px) {
+  header {
+    padding: 0 16px;
+  }
+}
