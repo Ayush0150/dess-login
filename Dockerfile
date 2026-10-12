@@ -1,7 +1,7 @@
 FROM node:26-alpine AS frontend
 WORKDIR /src/frontend
 COPY frontend/package*.json ./
-RUN npm ci
+RUN npm ci --include=dev
 COPY frontend/ ./
 RUN npm run build
 
@@ -17,6 +17,7 @@ WORKDIR /app
 COPY --from=backend /app/publish ./
 COPY --from=frontend /src/frontend/dist/frontend/browser ./wwwroot
 ENV ASPNETCORE_HTTP_PORTS=8080
+ENV ASPNETCORE_ENVIRONMENT=Production
 EXPOSE 8080
 USER $APP_UID
 ENTRYPOINT ["dotnet", "backend.dll"]

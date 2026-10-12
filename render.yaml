@@ -2,6 +2,9 @@ services:
   - type: web
     name: dess-login
     runtime: docker
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
     plan: free
     region: singapore
     healthCheckPath: /api/health
