@@ -113,9 +113,9 @@ main {
   box-sizing: border-box;
   margin: 0;
   padding: 14px 20px;
-  border: 1px solid #bbdfcc;
-  background: #c8edcf;
-  color: #166534;
+  border: 1px solid #93bd9f;
+  background: #b4dbbf;
+  color: #204e31;
   font-weight: 500;
   box-shadow: 0 8px 28px rgba(16, 48, 89, 0.12);
 }
