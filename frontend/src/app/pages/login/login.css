@@ -14,13 +14,12 @@
   box-sizing: border-box;
   padding: 0.625rem max(1rem, env(safe-area-inset-right))
     max(0.625rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
-  flex-wrap: wrap;
   overflow-wrap: anywhere;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  gap: 12px;
+  text-align: center;
 
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(6px);
@@ -29,14 +28,6 @@
 
 .login-footer a {
   color: #007bff;
-}
-
-@media (max-width: 50rem) {
-  .login-footer {
-    flex-direction: column;
-    gap: 4px;
-    text-align: center;
-  }
 }
 
 .login-main {
@@ -159,31 +150,9 @@
   cursor: wait;
 }
 
-.forgot-password {
-  display: block;
-  margin: 10px auto 0;
-  padding: 0.25rem;
-  min-height: 2.75rem;
-  border: 0;
-  background: transparent;
-  color: #1d57a9;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  cursor: pointer;
-}
-
-.forgot-password:hover {
-  color: #17478b;
-}
-
-.forgot-password:focus-visible,
 .sign-in-button:focus-visible {
   outline: 2px solid #1d57a9;
   outline-offset: 3px;
-}
-
-.forgot-password:focus-visible {
-  border-radius: 4px;
 }
 
 .password-input {
@@ -229,4 +198,91 @@
   margin-top: 6px;
   color: #a11919;
   font-size: 13px;
+}
+
+@media (max-width: 37.5rem) {
+  :host {
+    background-position: 60% center;
+  }
+
+  .login-main {
+    padding: max(1.5rem, env(safe-area-inset-top))
+      max(1rem, env(safe-area-inset-right)) 1.5rem
+      max(1rem, env(safe-area-inset-left));
+  }
+
+  .login-card {
+    max-width: 24rem;
+    padding: 1.75rem 1.25rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 12px 36px rgba(8, 25, 50, 0.2);
+  }
+
+  .login-logo {
+    width: 8rem;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .company-name {
+    margin-bottom: 24px;
+    font-size: 1rem;
+    line-height: 1.4;
+    text-wrap: balance;
+  }
+
+  #login-heading {
+    margin-bottom: 20px;
+    font-size: 1rem;
+  }
+
+  .form-field {
+    margin-bottom: 20px;
+  }
+
+  .form-field input {
+    min-height: 48px;
+    border-radius: 8px;
+    background: #f5f7fa;
+  }
+
+  .sign-in-button {
+    min-height: 48px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .login-footer {
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .login-footer a {
+    display: inline-block;
+  }
+}
+
+@media (max-height: 35rem) and (orientation: landscape) {
+  .login-main {
+    padding-block: 1rem;
+  }
+
+  .login-card {
+    padding-block: 1rem;
+  }
+
+  .login-logo {
+    width: 6rem;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .company-name,
+  .form-field {
+    margin-bottom: 12px;
+  }
 }
