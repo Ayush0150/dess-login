@@ -22,6 +22,7 @@ public class AuthService(AppDbContext db, IPasswordHasher<User> hasher)
         if (result == PasswordVerificationResult.SuccessRehashNeeded)
         {
             user.PasswordHash = hasher.HashPassword(user, request.Password);
+            await db.SaveChangesAsync(cancellationToken);
         }
 
         var claims = new List<Claim>
@@ -29,13 +30,6 @@ public class AuthService(AppDbContext db, IPasswordHasher<User> hasher)
             new(ClaimTypes.NameIdentifier, user.Id.ToString(CultureInfo.InvariantCulture)),
             new(ClaimTypes.Name, user.Username)
         };
-        if (user.LastLoginAt is { } lastLogin)
-        {
-            claims.Add(new Claim("last_login", lastLogin.ToString("O", CultureInfo.InvariantCulture)));
-        }
-
-        user.LastLoginAt = DateTimeOffset.UtcNow;
-        await db.SaveChangesAsync(cancellationToken);
         var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
         return new ClaimsPrincipal(identity);
     }

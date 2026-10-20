@@ -1,4 +1,3 @@
-using System.Security.Claims;
 using backend.Models;
 using backend.Services;
 using Microsoft.AspNetCore.Antiforgery;
@@ -47,8 +46,7 @@ public class AuthController(
     {
         return Ok(new
         {
-            username = User.Identity?.Name,
-            lastLoginAt = User.FindFirstValue("last_login")
+            username = User.Identity?.Name
         });
     }
 
